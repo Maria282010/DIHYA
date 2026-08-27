@@ -8,12 +8,59 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   background: #080808;
   color: white;
   font-family: Arial, sans-serif;
 }
+
+/* MENU */
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  padding: 18px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(8,8,8,0.75);
+  backdrop-filter: blur(10px);
+}
+
+.nav-logo {
+  color: #d4af65;
+  font-size: 22px;
+  letter-spacing: 5px;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+.cart {
+  color: #d4af65;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* HERO */
 
 .hero {
   height: 100vh;
@@ -39,7 +86,7 @@ body {
 
 .logo {
   position: absolute;
-  top: 30px;
+  top: 90px;
   width: 100%;
   text-align: center;
   color: #d4af65;
@@ -86,8 +133,10 @@ button {
   cursor: pointer;
 }
 
+/* COLLECTION */
+
 .collection {
-  padding: 50px 15px;
+  padding: 70px 15px;
   text-align: center;
 }
 
@@ -124,23 +173,123 @@ button {
   margin: 15px;
 }
 
+.size-select {
+  background: #080808;
+  color: white;
+  border: 1px solid #555;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
 .add {
   background: #d4af65;
   color: #080808;
   padding: 13px 25px;
-  border: none;
-  font-weight: bold;
-  cursor: pointer;
 }
 
-.add:hover,
-button:hover {
-  opacity: 0.85;
+/* ABOUT */
+
+.about {
+  padding: 70px 25px;
+  text-align: center;
+  background: #0d0d0d;
+}
+
+.about h2 {
+  color: #d4af65;
+  letter-spacing: 4px;
+}
+
+.about p {
+  color: #bbb;
+  line-height: 1.8;
+  max-width: 600px;
+  margin: auto;
+}
+
+/* CART */
+
+.cart-box {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 330px;
+  max-width: 90%;
+  height: 100vh;
+  background: #111;
+  z-index: 20;
+  padding: 30px;
+  box-shadow: -5px 0 20px rgba(0,0,0,0.5);
+}
+
+.cart-box h2 {
+  color: #d4af65;
+}
+
+.close {
+  float: right;
+  cursor: pointer;
+  font-size: 25px;
+}
+
+.cart-item {
+  margin-top: 30px;
+  border-bottom: 1px solid #333;
+  padding-bottom: 20px;
+}
+
+.checkout {
+  width: 100%;
+  margin-top: 25px;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+  .nav-links {
+    display: none;
+  }
+
+  .logo {
+    top: 90px;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+
+  .cart-box {
+    width: 300px;
+  }
 }
 </style>
 </head>
 
 <body>
+
+<!-- MENU -->
+
+<nav>
+
+  <div class="nav-logo">
+    ⵣ DIHYA
+  </div>
+
+  <div class="nav-links">
+    <a href="#shop">SHOP</a>
+    <a href="#about">ABOUT</a>
+  </div>
+
+  <div class="cart" onclick="openCart()">
+    🛒 BAG <span id="cartCount">0</span>
+  </div>
+
+</nav>
+
+
+<!-- HERO -->
 
 <section class="hero">
 
@@ -154,38 +303,170 @@ button:hover {
   </div>
 
   <div class="content">
-    <div class="small">AMAZIGH LUXURY</div>
 
-    <h1>NEW DROP</h1>
+    <div class="small">
+      AMAZIGH LUXURY
+    </div>
 
-    <p>Wear your expression.</p>
+    <h1>
+      NEW DROP
+    </h1>
 
-    <button>EXPLORE COLLECTION</button>
+    <p>
+      Wear your expression.
+    </p>
+
+    <button onclick="document.getElementById('shop').scrollIntoView()">
+      EXPLORE COLLECTION
+    </button>
+
   </div>
 
 </section>
 
-<section class="collection">
 
-  <h2>THE COLLECTION</h2>
+<!-- SHOP -->
+
+<section class="collection" id="shop">
+
+  <h2>
+    THE COLLECTION
+  </h2>
 
   <div class="product">
 
     <img src="Screenshot_20260827_210710_edit_97270665629819.jpg">
 
-    <h3>DIHYA HERITAGE SET</h3>
+    <h3>
+      DIHYA HERITAGE SET
+    </h3>
 
-    <div class="price">300 MAD</div>
-
-    <div class="sizes">
-      S &nbsp; M &nbsp; L &nbsp; XL
+    <div class="price">
+      300 MAD
     </div>
 
-    <button class="add">ADD TO BAG</button>
+    <div class="sizes">
+      SELECT SIZE
+    </div>
+
+    <select class="size-select" id="size">
+      <option value="S">S</option>
+      <option value="M">M</option>
+      <option value="L">L</option>
+      <option value="XL">XL</option>
+    </select>
+
+    <br>
+
+    <button class="add" onclick="addToBag()">
+      ADD TO BAG
+    </button>
 
   </div>
 
 </section>
+
+
+<!-- ABOUT -->
+
+<section class="about" id="about">
+
+  <h2>
+    ABOUT DIHYA
+  </h2>
+
+  <p>
+    DIHYA is a contemporary fashion brand inspired
+    by Amazigh heritage, identity and modern streetwear.
+    Traditional symbols meet modern luxury.
+  </p>
+
+</section>
+
+
+<!-- CART -->
+
+<div class="cart-box" id="cartBox">
+
+  <span class="close" onclick="closeCart()">×</span>
+
+  <h2>
+    YOUR BAG
+  </h2>
+
+  <div id="cartContent">
+    Your bag is empty.
+  </div>
+
+</div>
+
+
+<script>
+
+let cart = [];
+
+function addToBag() {
+
+  let size = document.getElementById("size").value;
+
+  cart.push({
+    name: "DIHYA HERITAGE SET",
+    price: 300,
+    size: size
+  });
+
+  document.getElementById("cartCount").innerText = cart.length;
+
+  alert("Added to bag 🖤");
+
+}
+
+function openCart() {
+
+  document.getElementById("cartBox").style.display = "block";
+
+  if (cart.length === 0) {
+
+    document.getElementById("cartContent").innerHTML =
+      "Your bag is empty.";
+
+  } else {
+
+    let html = "";
+
+    cart.forEach(function(item, index) {
+
+      html += `
+        <div class="cart-item">
+          <strong>${item.name}</strong>
+          <br><br>
+          Size: ${item.size}
+          <br>
+          ${item.price} MAD
+        </div>
+      `;
+
+    });
+
+    html += `
+      <button class="checkout">
+        CHECKOUT
+      </button>
+    `;
+
+    document.getElementById("cartContent").innerHTML = html;
+
+  }
+
+}
+
+function closeCart() {
+
+  document.getElementById("cartBox").style.display = "none";
+
+}
+
+</script>
 
 </body>
 </html>
