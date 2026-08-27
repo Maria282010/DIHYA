@@ -4,66 +4,117 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  background: #0b0b0b;
-  color: #f5f0e6;
+  background: #080808;
+  color: white;
   font-family: Arial, sans-serif;
-  text-align: center;
+}
+
+.hero {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.25),
+    rgba(0,0,0,0.15),
+    rgba(0,0,0,0.85)
+  );
 }
 
 .logo {
-  margin-top: 70px;
+  position: absolute;
+  top: 35px;
+  width: 100%;
+  text-align: center;
   color: #d4af65;
-  font-size: 35px;
+  font-size: 32px;
   letter-spacing: 8px;
+  font-weight: bold;
 }
 
 .symbol {
+  font-size: 25px;
+  margin-bottom: 5px;
+}
+
+.content {
+  position: absolute;
+  bottom: 55px;
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+}
+
+.small {
   color: #d4af65;
-  font-size: 35px;
-  margin-top: 50px;
+  letter-spacing: 5px;
+  font-size: 13px;
 }
 
 h1 {
   font-size: 42px;
   letter-spacing: 6px;
-  margin-top: 30px;
+  margin: 12px 0;
 }
 
 p {
-  color: #cfc8bb;
-  font-size: 17px;
+  color: #eee;
+  font-size: 15px;
 }
 
-.line {
-  width: 80px;
-  height: 1px;
+button {
+  margin-top: 18px;
+  padding: 14px 30px;
   background: #d4af65;
-  margin: 30px auto;
-}
-
-.coming {
-  color: #d4af65;
-  letter-spacing: 5px;
-  font-size: 14px;
+  color: #080808;
+  border: none;
+  font-weight: bold;
+  letter-spacing: 2px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="logo">DIHYA</div>
+<section class="hero">
 
-<div class="symbol">ⵣ</div>
+  <img src="Screenshot_20260827_210710_edit_97270665629819.jpg">
 
-<h1>AMAZIGH LUXURY</h1>
+  <div class="overlay"></div>
 
-<div class="line"></div>
+  <div class="logo">
+    <div class="symbol">ⵣ</div>
+    DIHYA
+  </div>
 
-<p>Something beautiful is coming...</p>
+  <div class="content">
+    <div class="small">AMAZIGH LUXURY</div>
 
-<div class="coming">COMING SOON</div>
+    <h1>NEW DROP</h1>
+
+    <p>Wear your expression.</p>
+
+    <button>COMING SOON</button>
+  </div>
+
+</section>
 
 </body>
 </html>
