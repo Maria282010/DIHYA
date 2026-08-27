@@ -32,15 +32,14 @@ body {
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(0,0,0,0.25),
-    rgba(0,0,0,0.15),
+    rgba(0,0,0,0.2),
     rgba(0,0,0,0.85)
   );
 }
 
 .logo {
   position: absolute;
-  top: 35px;
+  top: 30px;
   width: 100%;
   text-align: center;
   color: #d4af65;
@@ -51,12 +50,11 @@ body {
 
 .symbol {
   font-size: 25px;
-  margin-bottom: 5px;
 }
 
 .content {
   position: absolute;
-  bottom: 55px;
+  bottom: 45px;
   width: 100%;
   text-align: center;
   padding: 20px;
@@ -64,29 +62,80 @@ body {
 
 .small {
   color: #d4af65;
-  letter-spacing: 5px;
-  font-size: 13px;
+  letter-spacing: 4px;
+  font-size: 12px;
 }
 
 h1 {
-  font-size: 42px;
-  letter-spacing: 6px;
+  font-size: 40px;
+  letter-spacing: 5px;
   margin: 12px 0;
 }
 
-p {
+.content p {
   color: #eee;
-  font-size: 15px;
 }
 
 button {
-  margin-top: 18px;
   padding: 14px 30px;
   background: #d4af65;
   color: #080808;
   border: none;
   font-weight: bold;
   letter-spacing: 2px;
+  cursor: pointer;
+}
+
+.collection {
+  padding: 50px 15px;
+  text-align: center;
+}
+
+.collection h2 {
+  color: #d4af65;
+  letter-spacing: 4px;
+}
+
+.product {
+  max-width: 420px;
+  margin: 30px auto;
+  background: #111;
+  padding-bottom: 25px;
+}
+
+.product img {
+  width: 100%;
+  display: block;
+}
+
+.product h3 {
+  font-size: 20px;
+  letter-spacing: 2px;
+}
+
+.price {
+  color: #d4af65;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.sizes {
+  color: #bbb;
+  margin: 15px;
+}
+
+.add {
+  background: #d4af65;
+  color: #080808;
+  padding: 13px 25px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.add:hover,
+button:hover {
+  opacity: 0.85;
 }
 </style>
 </head>
@@ -111,7 +160,29 @@ button {
 
     <p>Wear your expression.</p>
 
-    <button>COMING SOON</button>
+    <button>EXPLORE COLLECTION</button>
+  </div>
+
+</section>
+
+<section class="collection">
+
+  <h2>THE COLLECTION</h2>
+
+  <div class="product">
+
+    <img src="Screenshot_20260827_210710_edit_97270665629819.jpg">
+
+    <h3>DIHYA HERITAGE SET</h3>
+
+    <div class="price">300 MAD</div>
+
+    <div class="sizes">
+      S &nbsp; M &nbsp; L &nbsp; XL
+    </div>
+
+    <button class="add">ADD TO BAG</button>
+
   </div>
 
 </section>
